@@ -6,7 +6,7 @@ class Listener:
     def __init__(self, ip, port):
         listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        listener.bind(("192.168.98.149", 4444))
+        listener.bind(("127.0.0.1", 4444))
         listener.listen(0)
         print("[+] Waiting for incoming connections")
         self.connection, address = listener.accept()
@@ -62,5 +62,5 @@ class Listener:
             print(result)
 
 
-my_listner = Listener("192.168.98.149", 4444)
+my_listner = Listener("127.0.0.1", 4444)
 my_listner.run()
